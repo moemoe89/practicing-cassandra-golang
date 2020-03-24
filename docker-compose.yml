@@ -1,5 +1,18 @@
 version: '3'
 services:
+  app:
+    build: .
+    volumes:
+      - .:/go/src/github.com/moemoe89/practicing-cassandra-golang
+    container_name: practice_cassandra_app
+    restart: always
+    ports:
+      - "8793:8793"
+    tty: true
+    depends_on:
+      - cassandra
+    networks:
+      - fullstack
   cassandra:
     image: bitnami/cassandra:latest
     container_name: practice_cassandra_db
