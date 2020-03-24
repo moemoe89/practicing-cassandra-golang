@@ -1,0 +1,17 @@
+version: '3'
+services:
+  cassandra:
+    image: bitnami/cassandra:latest
+    container_name: practice_cassandra_db
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "7000:7000"
+      - "9042:9042"
+    tty: true
+    networks:
+      - fullstack
+networks:
+  fullstack:
+    driver: bridge

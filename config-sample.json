@@ -1,0 +1,10 @@
+{
+  "port": "8793",
+  "cassandra": {
+    "addr": "127.0.0.1",
+    "port": 9042,
+    "keyspace": "example",
+    "username": "cassandra",
+    "password": "cassandra"
+  }
+}

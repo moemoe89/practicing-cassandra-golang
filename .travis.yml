@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - 1.13
+  - tip
+
+before_install:
+   - sudo cp config-sample.json config.json
+
+env:
+  - GO111MODULE=on
+
+script:
+   - go test -v -coverprofile=coverage.out ./...
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -P ${CODECOV_TOKEN##*/}
